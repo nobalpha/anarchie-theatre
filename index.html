@@ -35,9 +35,14 @@
                         <h2>Maison des Arts</h2>
                         <h4 class="date">18 Avril - 20h30</h4>
                         <p class="color-contrast-medium">Plus de détails...</p>
-                        <a href="geo:45.3889311,5.7328119"
-                            >Appuyez pour la localisation</a
+                        <button
+                            class="mapButton"
+                            name="Maison des arts saint laurent du pont"
+                            url="https://maps.app.goo.gl/yUMB7B94xhraTxXv5"
                         >
+                            Appuyez pour la localisation
+                        </button>
+                        <div class="mapContainer"></div>
                     </div>
                     <!-- cd-timeline__content -->
                 </div>
@@ -54,9 +59,14 @@
                         <h4 class="date">19 Avril - 20h30</h4>
                         <p class="color-contrast-medium">Plus de détails...</p>
 
-                        <a href="geo:45.0718275,5.5417783"
-                            >Appuyez pour la localisation</a
+                        <button
+                            class="mapButton"
+                            name="Brasserie du Vercors - Boutique de Villard-de-Lans"
+                            url="https://maps.app.goo.gl/mLgAKjc1A4R3fYdNA"
                         >
+                            Appuyez pour la localisation
+                        </button>
+                        <div class="mapContainer"></div>
                     </div>
                     <!-- cd-timeline__content -->
                 </div>
@@ -73,9 +83,14 @@
                         <h4 class="date">25 Avril - 19h</h4>
                         <p class="color-contrast-medium">Plus de détails...</p>
 
-                        <a href="geo:45.1898407,5.757865"
-                            >Appuyez pour la localisation</a
+                        <button
+                            class="mapButton"
+                            name="L'Aparte Salle Culturelle Berlioz"
+                            url="https://maps.app.goo.gl/6SERpzgAYQPrwNpa6"
                         >
+                            Appuyez pour la localisation
+                        </button>
+                        <div class="mapContainer"></div>
                     </div>
                     <!-- cd-timeline__content -->
                 </div>
@@ -91,9 +106,14 @@
                         <h2>Bar Radis</h2>
                         <h4 class="date">26 Avril - 19h</h4>
                         <p class="color-contrast-medium">Plus de détails...</p>
-                        <a href="geo:45.1723973,5.7265328"
-                            >Appuyez pour la localisation</a
+                        <button
+                            class="mapButton"
+                            name="Le Bar Radis"
+                            url="https://maps.app.goo.gl/gMhyWxiUSs5MUML3A"
                         >
+                            Appuyez pour la localisation
+                        </button>
+                        <div class="mapContainer"></div>
                     </div>
                     <!-- cd-timeline__content -->
                 </div>
@@ -110,9 +130,14 @@
                         <h4 class="date">28 Avril - 20h30</h4>
                         <p class="color-contrast-medium">Plus de détails...</p>
 
-                        <a href="geo:45.0108333,4.9055176"
-                            >Appuyez pour la localisation</a
+                        <button
+                            class="mapButton"
+                            name="Compagnie de la Cyrène"
+                            url="https://maps.app.goo.gl/dV2Rvx4FUurHMpATA"
                         >
+                            Appuyez pour la localisation
+                        </button>
+                        <div class="mapContainer"></div>
                     </div>
                     <!-- cd-timeline__content -->
                 </div>
@@ -129,9 +154,14 @@
                         <h4 class="date">7 Mai - 19h</h4>
                         <p class="color-contrast-medium">Plus de détails...</p>
 
-                        <a href="geo:45.1898407,5.757865"
-                            >Appuyez pour la localisation</a
+                        <button
+                            class="mapButton"
+                            name="L'Aparte Salle Culturelle Berlioz"
+                            url="https://maps.app.goo.gl/6SERpzgAYQPrwNpa6"
                         >
+                            Appuyez pour la localisation
+                        </button>
+                        <div class="mapContainer"></div>
                     </div>
                     <!-- cd-timeline__content -->
                 </div>
@@ -147,9 +177,14 @@
                         <h4 class="date">20 Mai - 19h</h4>
                         <p class="color-contrast-medium">Plus de détails...</p>
 
-                        <a href="geo:45.19316,5.728694"
-                            >Appuyez pour la localisation</a
+                        <button
+                            class="mapButton"
+                            name="Le Minimistan"
+                            url="https://maps.app.goo.gl/PSVk2WYFpv7HaUUc6"
                         >
+                            Appuyez pour la localisation
+                        </button>
+                        <div class="mapContainer"></div>
                     </div>
                     <!-- cd-timeline__content -->
                 </div>
@@ -157,10 +192,32 @@
         </section>
         <!-- cd-timeline -->
         <script src="rellax.min.js"></script>
-        <script src="assets/js/main.js"></script>
 
         <script type="text/javascript">
+            const KEY = "AIzaSyAddrlD3E9tPAczOHp8nhnTHZswADB86Wk";
             var rellax = new Rellax(".rellax");
+            const mapButtons = document.querySelectorAll(".mapButton");
+            mapButtons.forEach((but) => {
+                but.addEventListener("click", function () {
+                    const mapURL = but.getAttribute("url");
+                    const locaName = but.getAttribute("name");
+
+                    if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+                        console.log("mobile");
+                        return;
+                        // If mobile, open in maps app
+                        window.location.href = mapURL;
+                    } else {
+                        const mapContainer =
+                            but.parentNode.querySelector(".mapContainer");
+                        mapContainer.innerHTML = `<iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen=""
+src="https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(
+                            locaName
+                        )}&key=${KEY}"></iframe>`;
+                        mapContainer.style.display = "block";
+                    }
+                });
+            });
         </script>
     </body>
 </html>
