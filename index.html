@@ -37,6 +37,39 @@
         <div class="rellax clouds" data-rellax-speed="8"></div>
         <div class="whitespace"></div>
 
+        <section class="hero">
+            <div class="content">
+                <h2>
+                    anarchie
+                    <sup
+                        style="
+                            color: rgba(179, 177, 177, 0.692);
+                            font-size: 20px;
+                        "
+                        >[\a.naʁ.ʃi\]</sup
+                    >
+                </h2>
+                <p>
+                    <strong class="stro">Anarchie</strong>
+                    <i class="ital"
+                        >- pièce engagée contre les institutions capitalistes
+                        -</i
+                    >
+                    est une dystopie qui aborde le thème de la violence
+                    étatique, du rôle d'une éventuelle révolution dans notre
+                    société, et de la manière dont celle-ci doit se prononcer.
+                    On retrouve Marguerite - anarchiste hantée par ses rêves
+                    déchus par la puissance de l'occidentalisation capitaliste -
+                    qui présente son histoire ; ses rencontres, son combat, son
+                    idéologie, ses doutes, sa sensibilité. Marguerite, esprit
+                    trop plein, nous emmène dans le fleuve tumultueux de sa vie,
+                    entre espoir et doute, où la recherche de sens dans un monde
+                    dérisoire semble utopique.
+                </p>
+            </div>
+            <div class="waves"></div>
+        </section>
+
         <section class="cd-timeline js-cd-timeline">
             <div class="container max-width-lg cd-timeline__container">
                 <div class="cd-timeline__block">
@@ -47,8 +80,11 @@
 
                     <div class="cd-timeline__content text-component">
                         <h2>Maison des Arts</h2>
+                        <h4 class="lieu">Saint Laurent du Pont</h4>
                         <h4 class="date">18 Avril - 20h30</h4>
-                        <p class="color-contrast-medium">Plus de détails...</p>
+                        <p class="color-contrast-medium">
+                            Entrée et prix libre !
+                        </p>
                         <button
                             class="mapButton"
                             name="Maison des arts saint laurent du pont"
@@ -70,8 +106,11 @@
 
                     <div class="cd-timeline__content text-component">
                         <h2>Brasserie du Vercors</h2>
+                        <h4 class="lieu">Villar de Lans</h4>
                         <h4 class="date">19 Avril - 20h30</h4>
-                        <p class="color-contrast-medium">Plus de détails...</p>
+                        <p class="color-contrast-medium">
+                            Entrée et prix libre !
+                        </p>
 
                         <button
                             class="mapButton"
@@ -94,8 +133,9 @@
 
                     <div class="cd-timeline__content text-component">
                         <h2>Festival Pièces Montées</h2>
+                        <h4 class="lieu">Aparté - Grenoble</h4>
                         <h4 class="date">25 Avril - 19h</h4>
-                        <p class="color-contrast-medium">Plus de détails...</p>
+                        <p class="color-contrast-medium">Entrée à 3€</p>
 
                         <button
                             class="mapButton"
@@ -118,8 +158,11 @@
 
                     <div class="cd-timeline__content text-component">
                         <h2>Bar Radis</h2>
+                        <h4 class="lieu">Grenoble</h4>
                         <h4 class="date">26 Avril - 19h</h4>
-                        <p class="color-contrast-medium">Plus de détails...</p>
+                        <p class="color-contrast-medium">
+                            Entrée et prix libre !
+                        </p>
                         <button
                             class="mapButton"
                             name="Le Bar Radis"
@@ -141,8 +184,11 @@
 
                     <div class="cd-timeline__content text-component">
                         <h2>La Grange</h2>
+                        <h4 class="lieu">Saint Martin en Vercors</h4>
                         <h4 class="date">28 Avril - 20h30</h4>
-                        <p class="color-contrast-medium">Plus de détails...</p>
+                        <p class="color-contrast-medium">
+                            Entrée et prix libre !
+                        </p>
 
                         <button
                             class="mapButton"
@@ -165,8 +211,9 @@
 
                     <div class="cd-timeline__content text-component">
                         <h2>Festival Pièces Montées</h2>
+                        <h4 class="lieu">Aparté - Grenoble</h4>
                         <h4 class="date">7 Mai - 19h</h4>
-                        <p class="color-contrast-medium">Plus de détails...</p>
+                        <p class="color-contrast-medium">Entrée à 3€</p>
 
                         <button
                             class="mapButton"
@@ -188,8 +235,11 @@
 
                     <div class="cd-timeline__content text-component">
                         <h2>Minimistan</h2>
+                        <h4 class="lieu">Grenoble</h4>
                         <h4 class="date">20 Mai - 19h</h4>
-                        <p class="color-contrast-medium">Plus de détails...</p>
+                        <p class="color-contrast-medium">
+                            Entrée et prix libre !
+                        </p>
 
                         <button
                             class="mapButton"
@@ -204,6 +254,15 @@
                 </div>
             </div>
         </section>
+        <section class="comediens">
+            <h1>Troupe</h1>
+            <h2 id="comedien_name">&nbsp;</h2>
+            <div>
+                <div class="dummy"></div>
+                <div class="spotlight"></div>
+            </div>
+        </section>
+
         <!-- cd-timeline -->
         <script src="rellax.min.js"></script>
 
@@ -223,12 +282,102 @@
                         const mapContainer =
                             but.parentNode.querySelector(".mapContainer");
                         mapContainer.innerHTML = `<iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen=""
-src="https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(
-                            locaName
-                        )}&key=${KEY}"></iframe>`;
+            src="https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(
+                locaName
+            )}&key=${KEY}"></iframe>`;
                         mapContainer.style.display = "block";
                     }
                 });
+            });
+
+            //DOM load event
+            window.addEventListener("DOMContentLoaded", () => {
+                const spotlight = document.querySelector(".spotlight");
+                const name = document.querySelector("#comedien_name");
+
+                let spotlightSize = "transparent 20px, rgba(0, 0, 0, 1) 150px)";
+
+                window.addEventListener("mousemove", (e) => updateSpotlight(e));
+
+                window.addEventListener("mousedown", (e) => {
+                    spotlightSize = "transparent 20px, rgba(0, 0, 0, 1) 150px)";
+
+                    updateSpotlight(e);
+                });
+
+                window.addEventListener("mouseup", (e) => {
+                    spotlightSize = "transparent 20px, rgba(0, 0, 0, 1) 150px)";
+
+                    updateSpotlight(e);
+                });
+
+                const comediens = [
+                    ["Antoine Pepin", "Melyvn Palmer", "Auriane Dugay"],
+                    [
+                        "Roni Kolukisayan",
+                        "Anaëlle Pernet",
+                        "Lucie Issac",
+                        "Clément Sorin",
+                    ],
+                    [
+                        "Clara Gallo Botella",
+                        "Tanguy De Montgolfier",
+                        "Agatha Herlem",
+                    ],
+                ];
+
+                function updateSpotlight(e) {
+                    const percX = (e.layerX / window.innerWidth) * 100;
+                    const percY = (e.layerY / window.innerHeight) * 100;
+                    spotlight.style.backgroundImage = `radial-gradient(circle at ${percX}% ${percY}%, ${spotlightSize}`;
+                    try {
+                        const com = decryptComedien(percX, percY);
+                        if (com) name.textContent = com;
+                    } catch {}
+                }
+
+                function decryptComedien(x, y) {
+                    let Y, X;
+
+                    switch (true) {
+                        case 10 < x && x < 38:
+                            X = 0;
+                            break;
+                        case 40 < x && x < 55:
+                            X = 1;
+                            break;
+                        case 57 < x && x < 85:
+                            X = 2;
+                            break;
+                    }
+
+                    switch (true) {
+                        case 10 < y && y < 30:
+                            Y = 0;
+                            break;
+                        case 40 < y && y < 60:
+                            Y = 1;
+                            switch (true) {
+                                case 15 < x && x < 30:
+                                    X = 0;
+                                    break;
+                                case 40 < x && x < 45:
+                                    X = 1;
+                                    break;
+                                case 47 < x && x < 55:
+                                    X = 2;
+                                    break;
+                                case 57 < x && x < 90:
+                                    X = 3;
+                                    break;
+                            }
+                            break;
+                        case 70 < y && y < 80:
+                            Y = 2;
+                            break;
+                    }
+                    return comediens[Y][X];
+                }
             });
         </script>
     </body>
