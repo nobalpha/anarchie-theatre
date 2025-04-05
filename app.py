@@ -35,4 +35,4 @@ def read_json(path):
         return json.load(file_in)
 
 
-app.run("localhost", 443, debug=True)
+app.run("localhost", 443, debug=False)
