@@ -275,6 +275,15 @@
                         >
                             Appuyez pour la localisation
                         </button>
+
+                        <button
+                            name="inscription"
+                            url="https://billetto.fr/e/spectacle-anarchie-billets-1270678?utm_source=organiser&utm_medium=share&utm_campaign=copy_link&utm_content=2 "
+                            class="mapButton"
+                        >
+                            Inscription !
+                        </button>
+
                         <div class="mapContainer"></div>
                     </div>
                     <!-- cd-timeline__content -->
@@ -301,6 +310,11 @@
                 but.addEventListener("click", function () {
                     const mapURL = but.getAttribute("url");
                     const locaName = but.getAttribute("name");
+
+                    if (locaName === "inscription") {
+                        window.open(mapURL, "_blank");
+                        return;
+                    }
 
                     if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
                         // If mobile, open in maps app

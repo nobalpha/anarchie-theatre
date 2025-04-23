@@ -101,7 +101,7 @@ p {
     box-sizing: border-box;
     color: #ffffff;
     cursor: pointer;
-    display: inline-block;
+    display: block;
     font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
     font-size: 14px;
     font-weight: 800;
@@ -115,7 +115,10 @@ p {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
 }
 
 .mapButton:hover,
